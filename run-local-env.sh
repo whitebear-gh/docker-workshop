@@ -1,3 +1,9 @@
 #!/bin/bash
+echo "starting container with db .."
+docker start docker-workshop-mssql >> /dev/null
 
-dotnet restore && dotnet build && dotnet run
+echo "restore, build "
+dotnet restore && dotnet build 
+
+echo "update db "
+dotnet ef database update && dotnet run
