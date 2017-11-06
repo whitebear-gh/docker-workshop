@@ -1,9 +1,10 @@
 #!/bin/bash
 echo "starting container with db .."
-docker start docker-workshop-mssql >> /dev/null
-
-echo "restore, build "
-dotnet restore && dotnet build 
+docker start docker-workshop-mssql 
 
 echo "update db "
-dotnet ef database update && dotnet run
+export ConnectionStrings__Container="Server=10.0.75.2; Database=docker-workshop; User Id=sa;Password=vDbi2DiPmRFghIoC8B;"
+dotnet ef database update 
+
+echo "run image "
+./run-docker-image.sh
