@@ -2,8 +2,8 @@
 echo "clean old containers..."
 docker rm -f docker-ws
 
-echo "Publishing dotnet app..."
-dotnet restore && dotnet build && dotnet publish --output app/
+#echo "Publishing dotnet app..."
+#dotnet restore && dotnet build && dotnet publish --output app/
 
 
 echo "building new image..."
